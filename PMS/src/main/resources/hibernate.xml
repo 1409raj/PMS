@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<bean id="dataSourceVsm"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		
+ 	 <!--  <property name="url" value="jdbc:mysql://127.0.0.1:3306/hrms"></property>
+		<property name="username" value="sampark"></property>
+		<property name="password" value="Se2fc@re"></property>
+ -->
+		 <property name="url" value="jdbc:mysql://182.18.144.205:3306/pms"></property> 
+		<property name="username" value="hero"></property>
+		<property name="password" value="Admin@123"></property> 
+
+	</bean>
+
+	<!-- Hibernate 3 Annotation SessionFactory Bean definition -->
+	<bean id="sessionFactoryVsm"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceVsm" />
+		<property name="annotatedClasses">
+			<list>
+			<value>com.sampark.PMS.dto.EmployeeKRAData</value>
+				<value>com.sampark.PMS.dto.EmployeeBasicDetails</value>
+				<value>com.sampark.PMS.dto.EmployeeBehaviouralCompetenceDetails
+				</value>
+				<value>com.sampark.PMS.dto.EmployeeExtraOrdinaryDetails</value>
+				<value>com.sampark.PMS.dto.EmployeeKRADetails</value>
+				<value>com.sampark.PMS.dto.EmployeeAppraisalDetails</value>
+				<value>com.sampark.PMS.dto.OverAllCalculation</value>
+				<value>com.sampark.PMS.dto.DepartmentInPlanningAppraisalDetails
+				</value>
+				<value>com.sampark.PMS.dto.DepartmentInReviewAppraisalDetails
+				</value>
+				<value>com.sampark.PMS.dto.DepartmentInProcessAppraisalDetails
+				</value>
+				<value>com.sampark.PMS.dto.DepartmentName</value>
+				<value>com.sampark.PMS.dto.AppraisalCountDetails</value>
+				<value>com.sampark.PMS.dto.TermClass</value>
+				<value>com.sampark.PMS.dto.EmployeeEmails</value>
+				<value>com.sampark.PMS.dto.EmployeePromotions</value>
+				<value>com.sampark.PMS.dto.PasswordRest</value>
+				<value>com.sampark.PMS.dto.EmployeeCodeEmail</value>
+				<value>com.sampark.PMS.dto.AppraisalYear</value>
+				<value>com.sampark.PMS.dto.AppraisalYearDetails</value>
+				<value>com.sampark.PMS.dto.BehaviouralCompetenceDetails</value>
+				<value>com.sampark.PMS.dto.BehaviouralCompetence</value>
+				<value>com.sampark.PMS.dto.CareerAspirationsDetails</value>
+				<value>com.sampark.PMS.dto.Department</value>
+				<value>com.sampark.PMS.dto.Designation</value>
+				<value>com.sampark.PMS.dto.Employee</value>
+				<value>com.sampark.PMS.dto.EmployeeDynamicFormDetails</value>
+				<value>com.sampark.PMS.dto.ExtraOrdinary</value>
+				<value>com.sampark.PMS.dto.ExtraOrdinaryDetails</value>
+				<value>com.sampark.PMS.dto.FinalReviewDetails</value>
+				<value>com.sampark.PMS.dto.KraDetails</value>
+				<value>com.sampark.PMS.dto.KraNew</value>
+				<value>com.sampark.PMS.dto.MenusItemDetails</value>
+				<value>com.sampark.PMS.dto.OrganizationRoles</value>
+				<value>com.sampark.PMS.dto.Parameters</value>
+				<!-- <value>com.sampark.PMS.dto.Qualification</value> -->
+				<value>com.sampark.PMS.dto.RoleMenusItemDetailsMapping</value>
+				<value>com.sampark.PMS.dto.Roles</value>
+				<value>com.sampark.PMS.dto.TrainingNeeds</value>
+				<value>com.sampark.PMS.dto.TrainingNeedsDetails</value>
+				<value>com.sampark.PMS.dto.Users</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="commonDAO"
+		class="com.sampark.PMS.hibernate.CommonDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="employeeDAO"
+		class="com.sampark.PMS.hibernate.EmployeeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="kraDetailsDAO"
+		class="com.sampark.PMS.hibernate.KraDetailsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="extraOrdinaryDAO"
+		class="com.sampark.PMS.hibernate.ExtraOrdinaryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="trainingNeedsDAO"
+		class="com.sampark.PMS.hibernate.TrainingNeedsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="careerAspirationsDAO"
+		class="com.sampark.PMS.hibernate.CareerAspirationsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="finalReviewDAO"
+		class="com.sampark.PMS.hibernate.FinalReviewDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="behaviouralCompetenceDAO"
+		class="com.sampark.PMS.hibernate.BehaviouralCompetenceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="appraisalYearDetailsDAO"
+		class="com.sampark.PMS.hibernate.AppraisalYearDetailsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="appraisalYearDAO"
+		class="com.sampark.PMS.hibernate.AppraisalYearDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="departmentDAO"
+		class="com.sampark.PMS.hibernate.DepartmentDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="designationDAO"
+		class="com.sampark.PMS.hibernate.DesignationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<!-- <bean id="qualificationDAO" class="com.sampark.PMS.hibernate.QualificationDAOImpl"> 
+		<property name="sessionFactory" ref="sessionFactoryVsm" /> </bean> -->
+
+	<bean id="organizationRolesDAO"
+		class="com.sampark.PMS.hibernate.OrganizationRolesDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="rolesDAO" class="com.sampark.PMS.hibernate.RolesDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="employeeDynamicFormDetailsDAO"
+		class="com.sampark.PMS.hibernate.EmployeeDynamicFormDetailsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="employeeEmailDAO"
+		class="com.sampark.PMS.hibernate.EmployeeEmailDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+	<bean id="employeePromotionsDAO"
+		class="com.sampark.PMS.hibernate.EmployeePromotionsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactoryVsm" />
+	</bean>
+</beans>

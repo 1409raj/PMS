@@ -1,0 +1,48 @@
+/*hello*/
+.nvcolor{
+	border-bottom: 1px solid #475763;
+	background-color: #c8c8bf;
+}
+
+body{
+    background-color:#f4f4f2;
+}
+
+
+#sidebar-wrapper {
+	background-color: #e9e9e5;
+}
+
+.btn {
+	color: white;
+	background-color: #9c9c8b;
+	border:1px solid grey;
+}
+
+.btn:hover {
+	color: white;
+	background-color: #1d1d19;
+	border:1px solid grey;
+}
+
+.btn:focus {
+	color: white;
+	background-color: #1d1d19;
+	border:1px solid grey;
+}
+
+.headerMenuLeft{
+	color: #e9e9e5;	
+}
+
+.headerMenuLeft:hover{
+	color: white;	
+}
+
+.headerMenuRight {
+	color: #e9e9e5;	
+}
+
+.headerMenuRight:hover {
+	color: white;	
+}

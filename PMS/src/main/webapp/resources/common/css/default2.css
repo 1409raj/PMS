@@ -1,0 +1,67 @@
+.nvcolor{
+	border-bottom: 1px solid #da8c10;
+	background-color: #f39c12;
+}
+
+.navbar {
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+
+    /* the rest of your styling */
+}
+
+body{
+    background-color:#fdf9f0;
+}
+
+
+#sidebar-wrapper {
+	background-color: #F7BF64;
+}
+
+.btn {
+	color:black;
+	background-color: #F7BF64;
+	border:1px solid #f39c12;
+}
+
+.btn:hover {
+	color: white;
+	background-color: #f39c12;
+	border:1px solid #f39c12;
+}
+
+.btn-grey {
+	color:grey;
+	background-color: #fdf9f0;
+	border:1px solid #fdf9f0;
+}
+
+.btn:hover {
+	color: white;
+	background-color: #f39c12;
+	border:1px solid #f39c12;
+}
+
+.btn:focus {
+	color: white;
+	background-color: #f39c12;
+	border:1px solid #f39c12;
+}
+
+.headerMenuLeft{
+	color: #fdf6e9;	
+}
+
+.headerMenuLeft:hover{
+	color: white;	
+}
+
+.headerMenuRight {
+	color: #fdf6e9;	
+}
+
+.headerMenuRight:hover {
+	color: white;	
+}
