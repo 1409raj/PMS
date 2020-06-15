@@ -19,7 +19,7 @@
 		<!-- <oracle.version>12.1.0</oracle.version> -->
 		<mysql.version>5.1.9</mysql.version>
 		<commons-codec.version>1.6</commons-codec.version>
-		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-collections.version>3.2.2</commons-collections.version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
